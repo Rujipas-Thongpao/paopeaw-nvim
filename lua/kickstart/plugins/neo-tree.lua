@@ -14,7 +14,18 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+
     filesystem = {
+      filtered_items = {
+        hide_hiden = false,
+        hide_by_pattern = {
+          '*.meta',
+          '*.exe',
+        },
+        always_show = { -- remains visible even if other settings would normally hide it
+          'Library',
+        },
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
