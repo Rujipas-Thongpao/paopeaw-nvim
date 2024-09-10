@@ -7,4 +7,5 @@ return {
   require 'custom.plugins.gitsigns',
   require 'custom.plugins.whichkey',
   require 'custom.plugins.markview',
+  require 'custom.plugins.lualine',
 }
