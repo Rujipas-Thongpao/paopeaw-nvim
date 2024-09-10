@@ -4,4 +4,7 @@
 -- See the kickstart.nvim README for more information
 return {
   require 'custom.plugins.dashboard',
+  require 'custom.plugins.gitsigns',
+  require 'custom.plugins.whichkey',
+  require 'custom.plugins.markview',
 }
