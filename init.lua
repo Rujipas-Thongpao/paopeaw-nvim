@@ -100,6 +100,7 @@ vim.keymap.set('i', 'jj', '<Esc> <cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Keep visual mode after indent.
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 
@@ -702,9 +703,6 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',

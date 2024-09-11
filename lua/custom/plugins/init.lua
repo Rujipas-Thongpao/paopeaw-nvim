@@ -8,5 +8,6 @@ return {
   require 'custom.plugins.whichkey',
   require 'custom.plugins.markview',
   require 'custom.plugins.mini',
+  require 'custom.plugins.todoComment',
   require 'custom.plugins.lualine',
 }
