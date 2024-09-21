@@ -10,4 +10,5 @@ return {
   require 'custom.plugins.mini',
   require 'custom.plugins.todoComment',
   require 'custom.plugins.lualine',
+  require 'custom.plugins.typingMetrics',
 }
