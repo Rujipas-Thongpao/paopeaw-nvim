@@ -13,7 +13,7 @@
     which is very useful when you're not exactly sure of what you're looking for.
 
   I have left several `:help X` comments throughout the init.lua
-    These are hints about where to find more information about the relevant settings,
+    These are hints about where to find more information about the relevant settings,ini
     plugins or Neovim features used in Kickstart.
 
 
@@ -40,7 +40,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
-vim.opt.background = 'dark'
+vim.opt.background = 'light'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -691,13 +691,18 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'rose-pine/neovim',
+    opts = {
+      styles = {
+        -- transparency = true,
+      },
+    },
     name = 'rose-pine',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'rose-pine-moon'
+      vim.cmd.colorscheme 'rose-pine-dawn'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
