@@ -40,7 +40,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
-vim.opt.background = 'light'
+vim.opt.background = 'dark'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -127,6 +127,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.api.nvim_command 'set commentstring=//%s'
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -139,6 +141,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
+})
+
+vim.api.nvim_create_augroup('setIndent', { clear = true })
+vim.api.nvim_create_autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'cs' },
+  command = 'setlocal shiftwidth=4 tabstop=4',
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
@@ -692,9 +701,9 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'rose-pine/neovim',
     opts = {
-      styles = {
-        -- transparency = true,
-      },
+      -- styles = {
+      --   transparency = true,
+      -- },
     },
     name = 'rose-pine',
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -702,12 +711,14 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'rose-pine-dawn'
+      vim.cmd.colorscheme 'rose-pine'
+      -- vim.cmd.colorscheme 'catppuccin-latte'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
