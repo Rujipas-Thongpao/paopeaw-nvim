@@ -11,4 +11,5 @@ return {
   require 'custom.plugins.typingMetrics',
   require 'custom.plugins.hlslhighlight',
   require 'custom.plugins.comment',
+  require 'custom.plugins.theme',
 }
