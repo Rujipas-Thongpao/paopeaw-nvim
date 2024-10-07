@@ -316,7 +316,7 @@ require('lazy').setup({
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
-
+      { 'Hoffs/omnisharp-extended-lsp.nvim', lazy = true },
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -472,7 +472,23 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        omnisharp = {},
+        omnisharp = {
+          handlers = {
+            ['textDocument/definition'] = function(...)
+              return require('omnisharp_extended').handler(...)
+            end,
+          },
+          keys = {
+            {
+              'gd',
+              require('omnisharp_extended').lsp_definitions(),
+              desc = 'Goto Definition',
+            },
+          },
+          enable_roslyn_analyzers = true,
+          organize_imports_on_format = true,
+          enable_import_completion = true,
+        },
         pyright = {},
         lua_ls = {
           -- cmd = {...},
@@ -687,9 +703,9 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'rose-pine/neovim',
     opts = {
-      -- styles = {
-      --   transparency = true,
-      -- },
+      styles = {
+        transparency = true,
+      },
     },
     name = 'rose-pine',
     priority = 1000, -- Make sure to load this before all the other start plugins.
