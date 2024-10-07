@@ -774,6 +774,6 @@ vim.filetype.add {
   hlsl = 'hlsl', -- make .hlsl files to have hlsl filetype so treesitter give it proper highlight
 }
 
-vim.cmd 'colorscheme rose-pine'
+vim.cmd 'colorscheme rose-pine-Moon'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
