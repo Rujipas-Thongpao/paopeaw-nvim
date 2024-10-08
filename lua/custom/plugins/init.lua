@@ -12,4 +12,5 @@ return {
   require 'custom.plugins.hlslhighlight',
   require 'custom.plugins.comment',
   require 'custom.plugins.theme',
+  require 'custom.plugins.fugitive',
 }
