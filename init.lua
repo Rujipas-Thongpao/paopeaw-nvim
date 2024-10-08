@@ -11,7 +11,9 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
+--
 -- NOTE: You can change these options as you wish!
+
 --  For more options, you can see `:help option-list`
 
 vim.opt.number = true
@@ -67,7 +69,6 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- vim.cmd [[colorscheme rose-pine]]
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
