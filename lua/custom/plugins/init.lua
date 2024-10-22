@@ -13,4 +13,5 @@ return {
   require 'custom.plugins.comment',
   require 'custom.plugins.theme',
   require 'custom.plugins.fugitive',
+  require 'custom.plugins.harpoon',
 }

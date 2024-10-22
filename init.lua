@@ -126,7 +126,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function()
-    vim.diagnostic.open_float()
+    vim.diagnostic.open_float { focusable = false }
   end,
 })
 
@@ -253,6 +253,7 @@ require('lazy').setup({
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      require('telescope').load_extension 'harpoon'
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
